@@ -1,0 +1,23 @@
+<div class= "border-form-div" >
+<p>
+
+	<% unless comment.id.nil?  %>
+
+  <i><strong>Name:</strong>
+  
+  <%= comment.email %> <%="  commented   " %><%= time_ago_in_words(comment.created_at) %> ago.
+</p>
+<p>
+  <strong>Comment:</strong>
+  <%= comment.body %>
+</p>
+ 
+ <% if authorized_to_delete_comment(comment.post) %>
+<p>
+  <%= link_to 'Destroy Comment', [comment.post, comment],
+               method: :delete,
+               data: { confirm: 'Are you sure to delete ?' } %>
+</p>
+<% end %>
+<% end %>
+</div>
