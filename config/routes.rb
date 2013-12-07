@@ -2,6 +2,8 @@ BlogApp::Application.routes.draw do
   
 
   get "home/index"
+  get "home/about"
+  get "home/contact"
   resources :posts do 
      resources :comments,:except => [:edit,:update,:index]
    end

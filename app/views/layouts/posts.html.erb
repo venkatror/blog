@@ -11,20 +11,21 @@
   <div class="masthead">
     <%= render 'layouts/user_header' %>
 
-    <h3 class="muted"><%= link_to "BlogApp", root_path %></h3>
+   <!--  <h3 class="muted"><%= link_to "BlogApp", root_path %></h3>
     <h5 class="muted">Blog Application</h5>
-  
+   -->
 </div>
 	<!-- <p class="notice"><%= notice %></p> -->
     <p class="alert"><%= alert %></p>
     
-<div class="border-form-div-content">
+<!-- <div class="border-form-div-content">
    <i><%= link_to 'All Posts',posts_path(@posts_created)  %> (<%= (Post.all.count) %>)</i>
-</div>
+</div> -->
     
 <div class="border-form-div-content">
     <%= yield %>
 </div>
 
 </body>
+<%= render 'layouts/footer' %>
 </html>

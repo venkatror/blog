@@ -1,13 +1,43 @@
-<ul class="nav nav-pills pull-right">
+
+<ul>
+<div id="wrap">
+
+      <!-- Fixed navbar -->
+      <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="#">Blog App</a>
+            <div class="nav-collapse collapse">
+              <ul class="nav">
+                <li class="active"><%= link_to "Home" ,root_path %></li>
+                <li><%= link_to "About" ,home_about_path %></li>
+                <li><%= link_to "Contact" ,home_contact_path %></li>
+                
+                  
+           <ul class="nav nav-pills pull-right">
 	   
-  <% if user_signed_in? %>
-  <li><i><%= "logged in as " %></li><li><%= current_user.email %></li></i>
+          <% if user_signed_in? %>
 
-    <li><%= link_to "Posts", posts_path(@posts_created) %></li>
-
-    <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
-  <% else %>
-    <li><%= link_to "Sign in", new_user_session_path %></li>
-    <li><%= link_to "Sign up", new_user_registration_path %></li>
-  <% end %>
+          <li><%= link_to "Posts", posts_path(@posts_created), title: 'all posts', rel: 'tooltip' %></li>
+          <li><b><i> signed in as<%= link_to "#{ current_user.email}" %></i></b></li>
+          <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+              <% else %>
+          <li><%= link_to "Sign in", new_user_session_path %></li>
+          <li><%= link_to "Sign up", new_user_registration_path %></li>
+               <% end %>
+           </ul></li>
+                </li>
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div>
+        </div>
+      </div>
 </ul>

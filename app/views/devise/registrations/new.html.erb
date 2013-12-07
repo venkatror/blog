@@ -2,14 +2,16 @@
 <h2>Sign up</h2>
 
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+  
 
   <div><%= f.label :email %>
-  <%= f.email_field :email, :autofocus => true,placeholder: 'Email' %><%= f.error :title, id: 'title_error' %>
+  <%= f.email_field :email, :autofocus => true,placeholder: 'Email' %>
+  <%= f.error :email, id: 'email_error',message: "email cant be blank" %>
 </div>
 
   <div><%= f.label :password %>
   <%= f.password_field :password,placeholder: 'Password' %></div>
+  <%= f.error :password, id: 'password_error' %>
 
   <div><%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation,placeholder: 'Confirm_Password' %></div>
