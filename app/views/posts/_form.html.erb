@@ -10,6 +10,10 @@
     <%= f.text_area :content %><%= f.error :content, id: 'content_error' %>
   <%= f.hidden_field :user_id, :value => current_user.id %>
   <div>
-    <%= f.submit "Create Post", :class => "CSSButton" %>
+    <% if action =="create" %>
+    <%= f.submit "Create Post", :class => "btn btn-success" %>
+    <% else %>
+     <%= f.submit "Update Post", :class => "btn btn-success" %>
+    <% end %>
   </div>
 <% end %>

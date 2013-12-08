@@ -2,8 +2,6 @@ class CommentsController < ApplicationController
   before_action :load_post
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
 
-
-  
   def index
     @comments = @post.comments
   end
@@ -17,12 +15,7 @@ class CommentsController < ApplicationController
   def new
     @comment = @post.comments.build
   end
-
-  def edit
-    # @comment = @post.comments.find(params[:id])
-  end
-
-  
+ 
     def create
     @comment = @post.comments.build(comment_params)
 
@@ -37,19 +30,6 @@ class CommentsController < ApplicationController
     end
   end
 
-
-  
-  def update
-    respond_to do |format|
-      if @comment.update_attributes(comment_params)
-        format.html { redirect_to [@post, @comment], notice: 'Comment was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
-      end
-    end
-  end
 
   
   def destroy

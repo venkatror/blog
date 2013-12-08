@@ -10,12 +10,14 @@
 <div class="container-narrow">
   <div class="masthead">
     <%= render 'layouts/user_header' %>
-   </div>
-	
-    <p class="alert"><%= alert %></p>
-         
 
-  
+    <p><%= alert %></p>
+   </div>
+
+
+	<div class="masthead">
+    <p class="alert"><%= alert %></p>
+  </div>
 </div>
 <%= yield %>
 <%= render 'layouts/footer' %>

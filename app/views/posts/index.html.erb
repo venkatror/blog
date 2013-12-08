@@ -1,4 +1,9 @@
-
+<style type="text/css">
+tr.spaceUnder > td
+{
+  padding-bottom: 1em;
+}
+</style>
 
 <div class="tabbable"> <!-- Only required for left/right tabs -->
   <ul class="nav nav-tabs">
@@ -11,14 +16,16 @@
                 <div class ="border-form-div-content">
                <table>
                  <% @posts_created.each do |post| %>
-                <tr>
+                <tr class="spaceUnder">
                   <td style ="width: 40%;"><%= link_to "#{post.title}",post %></td>
                   <td style="width: 80%;"><i>posted <%= time_ago_in_words(post.created_at) %> ago.</i></td>
-                  <td><%= link_to 'Edit', edit_post_path(post),:class => "btn btn-info" %>  </td>
+                  <td><%= link_to 'Edit', edit_post_path(post),:class => "btn btn-success" %>  </td>
+                  <td>&nbsp;</td>
                    
-                  <td><%= link_to 'Destroy', post,:class => "btn btn-info", method: :delete, data: { confirm: 'Are you sure?' } %>
+                  <td><%= link_to 'Destroy', post,:class => "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
                   </td>
                 </tr>
+                <tr></tr>
               <% end %>
             </tbody>
           </table>
@@ -31,7 +38,7 @@
     <div class="tab-pane" id="tab2">
              <div class ="border-form-div-content">
             <table>
-             <% @others_posts.sort.each do |post| %>
+             <% @others_posts.each do |post| %>
                 <tr>
                   <td style ="width: 60%;"><%= link_to "#{post.title}",post%>&nbsp</td>
                   <td><i>  posted <%= time_ago_in_words(post.created_at) %> ago. </td>
